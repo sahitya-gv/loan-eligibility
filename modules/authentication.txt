@@ -5,3 +5,5 @@ Responsibilities:
 - User login
 - User logout
 - Authentication validation
+
+Status: Authentication module integrated for Sprint 1.
