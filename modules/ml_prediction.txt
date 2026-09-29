@@ -1,0 +1,7 @@
+ML Prediction Module
+
+Responsibilities:
+- Prepare input features
+- Load ML model
+- Generate loan eligibility prediction
+- Display prediction result

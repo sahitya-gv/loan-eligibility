@@ -1,0 +1,7 @@
+Loan Application Module
+
+Responsibilities:
+- Capture applicant details
+- Capture financial details
+- Validate loan application
+- Save application

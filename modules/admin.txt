@@ -1,0 +1,7 @@
+Admin Module
+
+Responsibilities:
+- Admin login
+- View users
+- View loan applications
+- Manage application records

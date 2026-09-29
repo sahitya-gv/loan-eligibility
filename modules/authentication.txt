@@ -1,0 +1,7 @@
+Authentication Module
+
+Responsibilities:
+- User registration
+- User login
+- User logout
+- Authentication validation
