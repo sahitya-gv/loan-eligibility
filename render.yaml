@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: loan-eligibility-api
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn loanproject.wsgi:application --bind 0.0.0.0:$PORT --workers 3 --timeout 120"
+    healthCheckPath: /healthz/
+    envVars:
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_ALLOWED_HOSTS
+        value: ".onrender.com,localhost,127.0.0.1"
+      - key: CSRF_TRUSTED_ORIGINS
+        value: "https://*.onrender.com"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: loan-db
+          property: connectionString
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+
+databases:
+  - name: loan-db
+    plan: free
+    region: oregon
+    databaseName: loandb
+    user: loanuser

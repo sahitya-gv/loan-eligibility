@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    container_name: loan_eligibility_api
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SECRET_KEY=local-docker-compose-insecure-secret-key-for-testing-only-12345
+      - DJANGO_DEBUG=True
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,web
+      - CSRF_TRUSTED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
+    restart: unless-stopped
